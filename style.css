@@ -1,5 +1,13 @@
 *{box-sizing:border-box;margin:0;font-family:Arial, sans-serif}
-body{background:#f4f6f8;color:#111}
+html, body { height: 100%; }
+
+body{
+  background:#f4f6f8;
+  color:#111;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
 /* NAVBAR */
 .navbar{
@@ -122,12 +130,17 @@ body{background:#f4f6f8;color:#111}
 
 /* FOOTER */
 footer{
-  background:#111827;color:#fff;
-  text-align:center;padding:16px;margin-top:40px;
+  background:#111827;
+  color:#fff;
+  text-align:center;
+  padding:16px;
+  margin-top: auto; /* ini kunci: nempel bawah */
 }
+
 /* paksa judul pendaftaran di tengah */
 #pendaftaran{
   display:block;
   width:100%;
   text-align:center !important;
 }
+
