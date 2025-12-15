@@ -128,34 +128,32 @@ body{
 }
 .form-box button:hover{filter:brightness(.98)}
 
-/* ===== SUPER SMALL FOOTER (FINAL) ===== */
-footer{ padding:0 !important; }  /* matikan padding footer bawaan */
-
-/* ===== FOOTER KECIL (TETAP HITAM & MEMANJANG) ===== */
-footer{
+footer{ padding:0 !important; }  
+.footer{
   background:#111827;
   color:#fff;
   width:100%;
-  padding:8px 12px;     /* kecil */
-  font-size:11px;        /* kecil */
-  line-height:1.25;
-  margin-top:auto;       /* tetap nempel bawah */
+  padding:6px 12px !important;   /* bikin bar hitam pendek */
+  font-size:11px !important;     /* kecilkan font */
+  line-height:1.15 !important;   /* rapatkan jarak baris */
+  margin-top:auto;
 }
 
-footer .footer-grid{
+.footer-grid{
   max-width:980px;
   margin:0 auto;
   display:grid;
-  grid-template-columns:repeat(3, 1fr);
-  gap:10px;              /* rapat */
+  grid-template-columns: repeat(3, 1fr);
+  gap:10px !important;
+  align-items:start;
 }
 
-footer h4{
-  font-size:10px;
-  margin:0 0 4px;
+.footer h4{
+  font-size:12px !important;
+  margin:0 0 2px !important;
 }
 
-footer p{
-  margin:0;
+.footer p{
+  margin:0 !important;
 }
 
