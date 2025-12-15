@@ -14,22 +14,21 @@
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="layanan.html" class="active">Layanan</a>
-    <a href="kelas.html">Kelas</a>
     <a href="koleksi.html">Koleksi</a>
   </nav>
 </header>
 
 <section class="page-hero">
   <h1>Layanan</h1>
-  <p>Silakan daftar menjadi peserta kursus dan lihat informasi layanan TikTakTop Course.</p>
+  <p>Silakan daftar sebagai anggota terlebih dahulu. Setelah berhasil, informasi layanan akan terbuka.</p>
 </section>
 
 <section class="content">
   <div class="center-wrap">
 
+    <!-- SECTION 1: PENDAFTARAN -->
     <h2 id="pendaftaran" class="title-center">Pendaftaran Anggota</h2>
 
-    <!-- FORM KETENGAH -->
     <div class="center-form">
       <form class="form-box" id="daftarForm">
         <input type="text" name="nama_lengkap" placeholder="Nama Lengkap" required>
@@ -51,28 +50,39 @@
       </form>
     </div>
 
-    <!-- INFO LAYANAN -->
-    <h2 id="info-layanan" style="margin:28px 0 14px;">Informasi Layanan</h2>
+    <!-- SECTION 2: INFORMASI LAYANAN (TERKUNCI) -->
+    <div id="lockedBox" class="card" style="margin-top:18px;">
+      <h3>🔒 Informasi Layanan Terkunci</h3>
+      <p>Silakan isi dan kirim formulir pendaftaran terlebih dahulu untuk membuka informasi layanan.</p>
+    </div>
 
-    <div class="grid">
-      <div class="card">
-        <h3>Materi Praktik</h3>
-        <p>Belajar dengan latihan & studi kasus nyata.</p>
+    <div id="layananSection" style="display:none; margin-top:18px;">
+      <h2 id="info-layanan" class="title-center">Informasi Layanan</h2>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Materi Praktik</h3>
+          <p>Belajar dengan latihan dan studi kasus nyata setiap pertemuan.</p>
+        </div>
+        <div class="card">
+          <h3>Sertifikat</h3>
+          <p>Sertifikat diberikan setelah menyelesaikan program kursus.</p>
+        </div>
+        <div class="card">
+          <h3>Konsultasi</h3>
+          <p>Bimbingan tambahan untuk tugas dan project peserta.</p>
+        </div>
       </div>
-      <div class="card">
-        <h3>Sertifikat</h3>
-        <p>Sertifikat diberikan setelah menyelesaikan program.</p>
-      </div>
-      <div class="card">
-        <h3>Konsultasi</h3>
-        <p>Bimbingan tambahan sesuai kebutuhan peserta.</p>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>✅ Status Pendaftaran</h3>
+        <p>Terima kasih! Kamu sudah terdaftar dan bisa melihat informasi layanan.</p>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-grid">
     <div>
@@ -82,40 +92,41 @@
 
     <div>
       <h4>Contact</h4>
-      <p>WhatsApp: 0882006677918<br>
-         Email: tiktaktop@gmail.com</p>
+      <p>WhatsApp: 0882006677918<br>Email: tiktaktop@gmail.com</p>
     </div>
 
     <div>
       <h4>Sosial Media</h4>
-      <p>
-        Instagram: @tiktaktopcourse<br>
-        Facebook: Tik Tak Top Course
-      </p>
+      <p>Instagram: @tiktaktopcourse<br>Facebook: Tik Tak Top Course</p>
     </div>
   </div>
 </footer>
 
 <script>
-  // URL Web App Apps Script (HARUS /exec)
+  // URL Apps Script Web App (/exec)
   const scriptURL = "https://script.google.com/macros/s/AKfycby0OiFBRceaXK__5iw8L20h_GnKLl6_GDU3nOBrtAtV1FGB7hvctXSu4toFEUxPFBbCfw/exec";
-
   const form = document.getElementById("daftarForm");
+
+  const lockedBox = document.getElementById("lockedBox");
+  const layananSection = document.getElementById("layananSection");
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
     fetch(scriptURL, {
       method: "POST",
-      mode: "no-cors", // penting untuk GitHub Pages biar tidak kena CORS
+      mode: "no-cors",
       body: new FormData(form)
     })
     .then(() => {
-      alert("Berhasil terkirim! Silakan cek Google Sheets.");
+      // buka layanan setelah submit
+      lockedBox.style.display = "none";
+      layananSection.style.display = "block";
+      alert("Pendaftaran berhasil! Informasi layanan sudah terbuka.");
       form.reset();
     })
     .catch((err) => {
-      alert("Gagal mengirim: " + err);
+      alert("Gagal mengirim data: " + err);
     });
   });
 </script>
