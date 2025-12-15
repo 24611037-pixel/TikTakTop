@@ -13,45 +13,44 @@
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
-    <a href="layanan.html">Layanan</a>
+    <a href="layanan.html" class="active">Layanan</a>
     <a href="kelas.html">Kelas</a>
     <a href="koleksi.html">Koleksi</a>
   </nav>
 </header>
 
-<section class="page-hero">
-  <h1>Layanan</h1>
-  <p>Silakan daftar sebagai anggota terlebih dahulu. Setelah berhasil, informasi layanan akan terbuka.</p>
-</section>
-
 <section class="content">
   <div class="center-wrap">
 
-    <!-- SECTION 1: PENDAFTARAN -->
-    <h2 id="pendaftaran" class="title-center">Pendaftaran Anggota</h2>
+    <!-- BAGIAN 1: FORM (DITAMPILKAN DULU) -->
+    <div id="pendaftaranWrap">
+      <h2 class="title-center">Pendaftaran Anggota</h2>
 
-    <div class="center-form">
-      <form class="form-box" id="daftarForm">
-        <input type="text" name="nama_lengkap" placeholder="Nama Lengkap" required>
+      <div class="center-form">
+        <form class="form-box" id="daftarForm">
+          <input type="text" name="nama_lengkap" placeholder="Nama Lengkap" required>
 
-        <select name="program_kursus" required>
-          <option value="" disabled selected>Pilih Program Kursus</option>
-          <option>Desain Grafis</option>
-          <option>Web Programming</option>
-          <option>Data Analysis</option>
-        </select>
+          <select name="program_kursus" required>
+            <option value="" disabled selected>Pilih Program Kursus</option>
+            <option>Desain Grafis</option>
+            <option>Web Programming</option>
+            <option>Data Analysis</option>
+          </select>
 
-        <input type="text" name="nik" placeholder="NIK / Nomor Induk Siswa" required>
+          <input type="text" name="nik" placeholder="NIK / Nomor Induk Siswa" required>
 
-        <textarea name="alamat" rows="3" placeholder="Alamat Lengkap" required></textarea>
+          <textarea name="alamat" rows="3" placeholder="Alamat Lengkap" required></textarea>
 
-        <input type="text" name="whatsapp" placeholder="Nomor WhatsApp" required>
+          <input type="text" name="whatsapp" placeholder="Nomor WhatsApp" required>
 
-        <button type="submit">Kirim Pendaftaran</button>
-      </form>
+          <button type="submit">Kirim Pendaftaran</button>
+        </form>
+      </div>
     </div>
-    <div id="layananSection" style="display:none; margin-top:18px;">
-      <h2 id="info-layanan" class="title-center">Informasi Layanan</h2>
+
+    <!-- BAGIAN 2: INFORMASI LAYANAN (DISIMPAN DULU, MUNCUL SETELAH SUBMIT) -->
+    <div id="layananSection" style="display:none; margin-top:24px;">
+      <h2 class="title-center">Informasi Layanan</h2>
 
       <div class="grid">
         <div class="card">
@@ -69,14 +68,15 @@
       </div>
 
       <div class="card" style="margin-top:14px;">
-        <h3> Status Pendaftaran</h3>
-        <p>Terima kasih! Kamu sudah terdaftar dan bisa melihat informasi layanan.</p>
+        <h3>✅ Pendaftaran Berhasil</h3>
+        <p>Terima kasih sudah mendaftar di TikTakTop Course.</p>
       </div>
     </div>
 
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-grid">
     <div>
@@ -97,11 +97,11 @@
 </footer>
 
 <script>
-  // URL Apps Script Web App (/exec)
-  const scriptURL = "https://script.google.com/macros/s/AKfycby0OiFBRceaXK__5iw8L20h_GnKLl6_GDU3nOBrtAtV1FGB7hvctXSu4toFEUxPFBbCfw/exec";
-  const form = document.getElementById("daftarForm");
+  // GANTI dengan URL Apps Script kamu yang /exec
+  const scriptURL = "PASTE_URL_APPS_SCRIPT_EXEC_DI_SINI";
 
-  const lockedBox = document.getElementById("lockedBox");
+  const form = document.getElementById("daftarForm");
+  const pendaftaranWrap = document.getElementById("pendaftaranWrap");
   const layananSection = document.getElementById("layananSection");
 
   form.addEventListener("submit", (e) => {
@@ -109,18 +109,20 @@
 
     fetch(scriptURL, {
       method: "POST",
-      mode: "no-cors",
-      body: new FormData(form)
+      body: new FormData(form),
+      mode: "no-cors" // supaya GitHub Pages tetap bisa kirim
     })
     .then(() => {
-      // buka layanan setelah submit
-      lockedBox.style.display = "none";
+      // setelah submit, tampilkan layanan
+      pendaftaranWrap.style.display = "none";
       layananSection.style.display = "block";
-      alert("Pendaftaran berhasil! Informasi layanan sudah terbuka.");
+
+      alert("Pendaftaran berhasil! Silakan lihat Informasi Layanan.");
       form.reset();
     })
     .catch((err) => {
       alert("Gagal mengirim data: " + err);
+      console.error(err);
     });
   });
 </script>
