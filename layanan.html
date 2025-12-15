@@ -13,12 +13,11 @@
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
-    <a href="layanan.html">Layanan</a>
+    <a href="layanan.html" class="active">Layanan</a>
     <a href="kelas.html">Kelas</a>
     <a href="koleksi.html">Koleksi</a>
   </nav>
 </header>
-
 
 <section class="page-hero">
   <h1>Layanan</h1>
@@ -28,7 +27,7 @@
 <section class="content">
   <div class="center-wrap">
 
-   <h2 id="pendaftaran" class="title-center">Pendaftaran Anggota</h2>
+    <h2 id="pendaftaran" class="title-center">Pendaftaran Anggota</h2>
 
     <!-- FORM KETENGAH -->
     <div class="center-form">
@@ -73,48 +72,54 @@
   </div>
 </section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-grid">
-      <div>
-        <h4>Alamat</h4>
-        <p>Jl. Malioboro No. 10, Yogyakarta</p>
-      </div>
-
-      <div>
-        <h4>Contact</h4>
-        <p>WhatsApp: 0882006677918<br>
-           Email: tiktaktop@gmail.com</p>
-      </div>
-
-      <div>
-        <h4>Sosial Media</h4>
-        <p>
-          Instagram: @tiktaktopcourse<br>
-          Facebook: Tik Tak Top Course
-        </p>
-      </div>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <h4>Alamat</h4>
+      <p>Jl. Malioboro No. 10, Yogyakarta</p>
     </div>
-  </footer>
 
-</body>
-</html>
+    <div>
+      <h4>Contact</h4>
+      <p>WhatsApp: 0882006677918<br>
+         Email: tiktaktop@gmail.com</p>
+    </div>
+
+    <div>
+      <h4>Sosial Media</h4>
+      <p>
+        Instagram: @tiktaktopcourse<br>
+        Facebook: Tik Tak Top Course
+      </p>
+    </div>
+  </div>
+</footer>
+
 <script>
-  const scriptURL = "https://script.google.com/macros/s/AKfycby0OiFBRceaXK__5iw8L20h_GnKLl6_GDU3nOBrtAtV1FGB7hvctXSu4toFEUxPFBbCfw/exec"
+  // URL Web App Apps Script (HARUS /exec)
+  const scriptURL = "https://script.google.com/macros/s/AKfycby0OiFBRceaXK__5iw8L20h_GnKLl6_GDU3nOBrtAtV1FGB7hvctXSu4toFEUxPFBbCfw/exec";
+
+  const form = document.getElementById("daftarForm");
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    fetch(scriptURL, { method: "POST", body: new FormData(form) })
-      .then(res => res.text())
-      .then(text => {
-        alert("Berhasil! Respon: " + text);
-        form.reset();
-      })
-      .catch(err => alert("Gagal: " + err));
+    fetch(scriptURL, {
+      method: "POST",
+      mode: "no-cors", // penting untuk GitHub Pages biar tidak kena CORS
+      body: new FormData(form)
+    })
+    .then(() => {
+      alert("Berhasil terkirim! Silakan cek Google Sheets.");
+      form.reset();
+    })
+    .catch((err) => {
+      alert("Gagal mengirim: " + err);
+    });
   });
 </script>
+
 </body>
 </html>
-
 
