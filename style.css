@@ -60,6 +60,10 @@ body{background:#f4f6f8;color:#111}
   display:flex;
   justify-content:center;   /* ini yang bikin box form ketengah */
 }
+.title-center{
+  text-align: center;
+  margin-bottom: 14px;
+}
 
 /* CARDS */
 .card{
@@ -122,3 +126,4 @@ footer{
   background:#111827;color:#fff;
   text-align:center;padding:16px;margin-top:40px;
 }
+
