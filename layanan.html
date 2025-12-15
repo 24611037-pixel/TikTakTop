@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Pendaftaran | TikTakTop</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Layanan | TikTakTop</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
@@ -19,31 +20,55 @@
 </header>
 
 <section class="page-hero">
-  <h1>About</h1>
-  <p>Tik Tak Top Course adalah lembaga kursus komputer dengan pembelajaran terstruktur dan praktik langsung.</p>
+  <h1>Layanan</h1>
+  <p>Silakan daftar menjadi peserta kursus dan lihat informasi layanan TikTakTop Course.</p>
 </section>
 
 <section class="content">
   <div class="center-wrap">
+
+    <h2 id="pendaftaran" style="margin-bottom:14px;">Pendaftaran Anggota</h2>
+
+    <!-- FORM KETENGAH -->
+    <div class="center-form">
+      <form class="form-box">
+        <input type="text" name="nama_lengkap" placeholder="Nama Lengkap" required>
+
+        <select name="program_kursus" required>
+          <option value="" disabled selected>Pilih Program Kursus</option>
+          <option>Desain Grafis</option>
+          <option>Web Programming</option>
+          <option>Data Analysis</option>
+        </select>
+
+        <input type="text" name="nik" placeholder="NIK / Nomor Induk Siswa" required>
+
+        <textarea name="alamat" rows="3" placeholder="Alamat Lengkap" required></textarea>
+
+        <input type="text" name="whatsapp" placeholder="Nomor WhatsApp" required>
+
+        <button type="submit">Kirim Pendaftaran</button>
+      </form>
+    </div>
+
+    <!-- INFO LAYANAN -->
+    <h2 id="info-layanan" style="margin:28px 0 14px;">Informasi Layanan</h2>
+
     <div class="grid">
       <div class="card">
-        <h3>Visi</h3>
-        <p>Membantu peserta siap skill digital untuk sekolah dan dunia kerja.</p>
+        <h3>Materi Praktik</h3>
+        <p>Belajar dengan latihan & studi kasus nyata.</p>
       </div>
       <div class="card">
-        <h3>Misi</h3>
-        <p>Memberikan materi relevan, latihan rutin, dan pendampingan.</p>
+        <h3>Sertifikat</h3>
+        <p>Sertifikat diberikan setelah menyelesaikan program.</p>
       </div>
       <div class="card">
-        <h3>Keunggulan</h3>
-        <p>Kelas kecil, terarah, dan fokus pada hasil.</p>
+        <h3>Konsultasi</h3>
+        <p>Bimbingan tambahan sesuai kebutuhan peserta.</p>
       </div>
     </div>
 
-    <div class="card" style="margin-top:14px;">
-      <h3>Jam Operasional</h3>
-      <p>Senin–Jumat: 09.00–17.00 | Sabtu: 09.00–13.00</p>
-    </div>
   </div>
 </section>
 
@@ -53,3 +78,4 @@
 
 </body>
 </html>
+
