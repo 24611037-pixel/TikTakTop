@@ -31,7 +31,7 @@
 
     <!-- FORM KETENGAH -->
     <div class="center-form">
-      <form class="form-box">
+      <form class="form-box" id="daftarForm">
         <input type="text" name="nama_lengkap" placeholder="Nama Lengkap" required>
 
         <select name="program_kursus" required>
@@ -75,6 +75,22 @@
 <footer>
   © 2025 TikTakTop Course
 </footer>
+<script>
+  const scriptURL = "https://script.google.com/macros/s/AKfycbyBgi5Jzix4reRfM_Uykf_yvJe8VzOoAg1MruzrLJ9dyu8MwRMDyplBBfMGtAl1jgctbw/exec"; // contoh: https://script.google.com/macros/s/AKfycb.../exec
+  const form = document.getElementById("daftarForm");
 
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    fetch(scriptURL, { method: "POST", body: new FormData(form) })
+      .then(res => res.text())
+      .then(text => {
+        alert("Berhasil! Respon: " + text);
+        form.reset();
+      })
+      .catch(err => alert("Gagal: " + err));
+  });
+</script>
 </body>
 </html>
+
