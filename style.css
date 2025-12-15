@@ -131,27 +131,31 @@ body{
 /* ===== SUPER SMALL FOOTER (FINAL) ===== */
 footer{ padding:0 !important; }  /* matikan padding footer bawaan */
 
-.footer{
-  padding: 6px 10px !important;
-  font-size: 12px !important;
-  line-height: 1.2 !important;
+/* ===== FOOTER KECIL (TETAP HITAM & MEMANJANG) ===== */
+footer{
+  background:#111827;
+  color:#fff;
+  width:100%;
+  padding:8px 12px;     /* kecil */
+  font-size:11px;        /* kecil */
+  line-height:1.25;
+  margin-top:auto;       /* tetap nempel bawah */
 }
 
-.footer-grid{
-  max-width: 980px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px !important;
-  align-items: start;
+footer .footer-grid{
+  max-width:980px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:10px;              /* rapat */
 }
 
-.footer h4{
-  font-size: 13px !important;
-  margin: 0 0 3px !important;
+footer h4{
+  font-size:10px;
+  margin:0 0 4px;
 }
 
-.footer p{
-  margin: 0 !important;
+footer p{
+  margin:0;
 }
 
