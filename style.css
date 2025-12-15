@@ -128,30 +128,30 @@ body{
 }
 .form-box button:hover{filter:brightness(.98)}
 
-/* ===== FORCE SMALL FOOTER (override) ===== */
+/* ===== SUPER SMALL FOOTER (FINAL) ===== */
+footer{ padding:0 !important; }  /* matikan padding footer bawaan */
+
 .footer{
-  padding: 8px 14px !important;
-  font-size: 13px !important;
-  line-height: 1.3 !important;
+  padding: 6px 10px !important;
+  font-size: 12px !important;
+  line-height: 1.2 !important;
 }
 
 .footer-grid{
-  gap: 10px !important;
+  max-width: 980px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px !important;
+  align-items: start;
 }
 
 .footer h4{
-  margin: 0 0 4px !important;
-  font-size: 14px !important;
+  font-size: 13px !important;
+  margin: 0 0 3px !important;
 }
 
 .footer p{
   margin: 0 !important;
-}
-
-/* paksa judul pendaftaran di tengah */
-#pendaftaran{
-  display:block;
-  width:100%;
-  text-align:center !important;
 }
 
