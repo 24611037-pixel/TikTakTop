@@ -61,8 +61,9 @@ body{background:#f4f6f8;color:#111}
   justify-content:center;   /* ini yang bikin box form ketengah */
 }
 .title-center{
-  text-align: center;
-  margin-bottom: 14px;
+  width: 100%;
+  text-align: center !important;
+  margin: 10px 0 18px !important;
 }
 
 /* CARDS */
@@ -126,4 +127,3 @@ footer{
   background:#111827;color:#fff;
   text-align:center;padding:16px;margin-top:40px;
 }
-
