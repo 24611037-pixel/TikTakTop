@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pendaftaran | TikTakTop</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo">TikTakTop</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="layanan.html">Layanan</a>
+    <a href="pendaftaran.html" class="active">Pendaftaran</a>
+    <a href="kelas.html">Kelas</a>
+    <a href="koleksi.html">Koleksi</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <h1>Pendaftaran Anggota</h1>
+  <p>Isi formulir berikut untuk mendaftar kursus di TikTakTop.</p>
+</section>
+
+<section class="content">
+  <div class="center-wrap">
+    <h2 class="title-center">Form Pendaftaran</h2>
+
+    <div class="center-form">
+      <form class="form-box" id="daftarForm">
+        <input type="text" name="nama_lengkap" placeholder="Nama Lengkap" required>
+
+        <select name="program_kursus" required>
+          <option value="" disabled selected>Pilih Program Kursus</option>
+          <option>Desain Grafis</option>
+          <option>Web Programming</option>
+          <option>Data Analysis</option>
+        </select>
+
+        <input type="text" name="nik" placeholder="NIK / Nomor Induk Siswa" required>
+
+        <textarea name="alamat" rows="3" placeholder="Alamat Lengkap" required></textarea>
+
+        <input type="text" name="whatsapp" placeholder="Nomor WhatsApp" required>
+
+        <button type="submit">Kirim Pendaftaran</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>© 2025 TikTakTop Course</footer>
+
+<script>
+  const scriptURL = "https://docs.google.com/spreadsheets/d/11YEepk9I3vQ3P35bKOEPbppZYk3RunGp4rCQB6Pb3uU/edit?hl=id&gid=0#gid=0"; // /exec
+  const form = document.getElementById("daftarForm");
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    fetch(scriptURL, { method: "POST", body: new FormData(form) })
+      .then(res => res.text())
+      .then(txt => { alert("Berhasil: " + txt); form.reset(); })
+      .catch(err => alert("Gagal: " + err));
+  });
+</script>
+
+</body>
+</html>
